@@ -34,7 +34,7 @@ function App() {
           if(data["result"].total_count){
             count.push(1);
              let i = 11;
-              while(i <= data["result"].total_count && i%10 != 0){
+              while(i <= data["result"].total_count && i%10 !== 0){
                 count.push((i+9)/10);
                 i+=9;
               }
@@ -75,7 +75,7 @@ function App() {
          console.log(err)
        })
 
-  },[filterTech]);
+  },[]);
   const handleFilter = async function(event){
     
     window.location.href = window.location.origin + "/search?tech=" +event.target.value; 
@@ -162,7 +162,7 @@ function App() {
 
                             <tr key={ele.id}>
                               <td>{ele.concept}</td>
-                               <td> <a href={ele.url} target='_blank'> {ele.url} </a></td> 
+                               <td> <a href={ele.url}rel="noreferrer" target='_blank'> {ele.url} </a></td> 
                             </tr>
                         )
                     })
