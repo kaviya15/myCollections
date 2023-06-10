@@ -75,7 +75,7 @@ function App() {
          console.log(err)
        })
 
-  },[]);
+  },[filterTech]);
   const handleFilter = async function(event){
     
     window.location.href = window.location.origin + "/search?tech=" +event.target.value; 
