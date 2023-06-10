@@ -15,13 +15,13 @@ function App() {
   useEffect(()=>{
     let splitted_href = window.location.href.split("/");
     splitted_href = splitted_href[splitted_href.length - 1];
-    var currPage = splitted_href=='' ? 1 : parseInt(splitted_href)
+    var currPage = splitted_href==='' ? 1 : parseInt(splitted_href)
     setCurrentPage(currPage);
     
     console.log(currentPage,"currentPage",splitted_href)
       
       let endpoint = window.location.href.split(window.location.origin)[1]
-      var url  = endpoint == "/" ? "/search" : endpoint;
+      var url  = endpoint === "/" ? "/search" : endpoint;
       setfilterTech()
       url = "/my_personal_collection" + url;
       fetch(url)
@@ -60,7 +60,7 @@ function App() {
             let url  =window.location.href;
             for(let ob of obj){
               if(url.includes("tech") && 
-              (ob.Tech == url.split("tech=")[1].split("&")[0])){
+              (ob.Tech === url.split("tech=")[1].split("&")[0])){
                 ob.selected = true;
               }
               else{
@@ -110,7 +110,7 @@ function App() {
       }
     })
     resp = await resp.json();
-    if(resp.message == "success"){
+    if(resp.message === "success"){
       setUrl("");
       setTech("");
       alert("successfully added")
@@ -146,7 +146,7 @@ function App() {
 
             <div className='fetched_datas'>
             {
-                err == "" && A_data.length == 0 ? <p>{err}</p> : 
+                err === "" && A_data.length === 0 ? <p>{err}</p> : 
                 <table>
                     <thead>
                         <tr>
@@ -210,7 +210,7 @@ x
                     return(
                       <li  className="page-item" key={page}>
                         
-                        <a  id ={currentPage == page ? "active_page":"non-active_page"} className="page-link" 
+                        <a  id ={currentPage === page ? "active_page":"non-active_page"} className="page-link" 
                         href={getURL() + page}>{page}</a></li>
                     )
                   })
