@@ -24,7 +24,7 @@ function App() {
       var url  = endpoint === "/" ? "/search" : endpoint;
       setfilterTech()
       url = "/my_personal_collection" + url;
-      fetch(url)
+      fetch("https://my-collections-backend-v1.onrender.com" +url)
       .then(data=>data.json())
       .then(data=>{
         if(data){
@@ -53,7 +53,7 @@ function App() {
         setError(err)
       });
      
-       fetch("/my_personal_collection/fetchtech")
+       fetch("https://my-collections-backend-v1.onrender.com/my_personal_collection/fetchtech")
        .then(resp=>resp.json()).then(resp=>{
         if(resp.result.result){
             let obj = resp.result.result;
@@ -99,7 +99,7 @@ function App() {
 
   const hanldeAdd = async function(){
     console.log(url,tech,"hello");
-    let resp = await fetch("/my_personal_collection/post_content",{
+    let resp = await fetch("https://my-collections-backend-v1.onrender.com/my_personal_collection/post_content",{
       method:"POST",
       body:JSON.stringify({
         tech:tech,
